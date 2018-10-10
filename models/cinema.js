@@ -18,12 +18,15 @@ Cinema.prototype.findByYear = function (year) {
 return   this.films.filter(film => film.year === year);
 };
 
+// Cinema.prototype.checkByYear = function (year) {
+// if(this.findByYear(year).length > 0){
+//   return true
+// }else{
+//   return false
+// }
+// };
 Cinema.prototype.checkByYear = function (year) {
-if(this.findByYear(year).length > 0){
-  return true
-}else{
-  return false
-}
+  return this.films.some(film => film.year === year)
 };
 
 Cinema.prototype.meetMinimumLength = function (length) {
@@ -33,7 +36,7 @@ Cinema.prototype.meetMinimumLength = function (length) {
 Cinema.prototype.totalRunTime = function () {
   return this.films.reduce((total,film) => {
     return total + film.length;
-  },0);
+  },0); //pass in the 0 ALWAYS
 };
 
 Cinema.prototype.filmsByProperty = function (property,value) {
